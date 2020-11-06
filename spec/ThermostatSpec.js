@@ -3,7 +3,9 @@
 describe('Thermostat',() => {
 
   let thermostat;
-
+  // let MINIMUM_TEMPERATURE;
+  // let MIN_TEMP = MINIMUM_TEMPERATURE + 1
+  let MIN_TEMP = 11
   beforeEach(() => {
     thermostat = new Thermostat();
   });
@@ -23,7 +25,7 @@ describe('Thermostat',() => {
   })
 
   it('has a minimum of 10 degrees', () => {
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < MIN_TEMP; i++) {
       thermostat.down();
     }
     expect(thermostat.getCurrentTemperature()).toEqual(10);
