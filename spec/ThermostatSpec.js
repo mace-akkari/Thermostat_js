@@ -46,4 +46,28 @@ describe('Thermostat',() => {
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
   });
 
+  describe('when power saving mode is on',() => {
+
+    it('has a maximum temperature of 25 degrees',() => {
+      let psm_on = thermostat.MAX_LIMIT_PSM_ON
+      for (let i = 0; i <= psm_on; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(psm_on);
+    });
+  });
+
+  describe('when power saving mode is off', () => {
+    
+    it('has a maximum temperature of 32 degrees', () => {
+      thermostat.switchPowerSavingModeOff();
+      let psm_off = thermostat.MAX_LIMIT_PSM_OFF
+      for (let i = 0; i < psm_off; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(psm_off);
+    });
+  });
+
+
 });
