@@ -50,7 +50,7 @@ describe('Thermostat',() => {
 
     it('has a maximum temperature of 25 degrees',() => {
       let psm_on = thermostat.MAX_LIMIT_PSM_ON
-      for (let i = 0; i <= psm_on; i++) {
+      for (let i = 0; i < psm_on; i++) {
         thermostat.up();
       }
       expect(thermostat.getCurrentTemperature()).toEqual(psm_on);
@@ -76,6 +76,37 @@ describe('Thermostat',() => {
     }
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemperature()).toEqual(def_temp);
+  });
+
+  describe('displaying usage levels', () => {
+
+
+    describe('when the temperature is below 18 degrees', () =>  {
+      it('it is considered low-usage', () => {
+        let low_usage = thermostat.DEFAULT_TEMPERATURE - 3
+        for (let i = 0; i < low_usage; i++) {
+          thermostat.down();
+        }
+        expect(thermostat.energyUsage()).toEqual('low-usage');
+      });
+    });
+  
+    describe('when the temperature is between 18 and 25 degrees', () =>  {
+      it('it is considered medium-usage', () =>  {
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
+      });
+    });
+  
+    describe('when the temperature is anything else', () =>  {
+      it('it is considered high-usage', function() {
+        thermostat.powerSavingMode = false;
+        let high_usage = thermostat.DEFAULT_TEMPERATURE + 6
+        for (let i = 0; i < high_usage; i++) {
+          thermostat.up();
+        }
+        expect(thermostat.energyUsage()).toEqual('high-usage');
+      });
+    });
   });
 
 
