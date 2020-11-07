@@ -1,0 +1,21 @@
+html, body {
+  background-color: blueviolet;
+  color: white;
+}
+
+.main-content {
+  align-content: center;
+  text-align: center;
+}
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: red;
+}
