@@ -71,7 +71,7 @@ describe('Thermostat',() => {
 
   it('can be reset to the default temperature', () => {
     let def_temp = thermostat.DEFAULT_TEMPERATURE
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < def_temp; i++) {
       thermostat.up();
     }
     thermostat.resetTemperature();
