@@ -10,6 +10,7 @@ html, body {
 }
 
 .main-content {
+  padding-top: 10%;
   align-content: center;
   text-align: center;
   grid-column: 1 /  2;
@@ -17,6 +18,10 @@ html, body {
 
 .thermo_button {
   padding: 15px;
+}
+
+.psm {
+  padding: 10px;
 }
 
 .section-2 {
@@ -41,3 +46,9 @@ html, body {
 .high-usage {
   color: red;
 } 
+
+#power-saving {
+  color: black;
+  font-size: 1.5em;
+  text-decoration: underline;
+}
