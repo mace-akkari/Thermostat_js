@@ -6,21 +6,31 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
   <body>
-    <section class="main-content">
-      <h1>Current temperature : <span id="current-temperature"></span></h1>
-      <h2>Temperature highs : <span id="temperature-high"></span></h2>
-      <h2>Temperature lows : <span id="temperature-low"></span></h2>
-    </section>
-      <section class="thermo_button">
+    <section class="container">
+      <div class="main-content">
+        <h1>Current temperature : <span id="current-temperature"></span></h1>
+        <h2>Temperature highs : <span id="temperature-high"></span></h2>
+        <h2>Temperature lows : <span id="temperature-low"></span></h2>
+        <form id="select-city">
+          <input id="current-city" type="text" placeholder="Enter a city: London"></input>
+          <input type="submit"></input>
+        </form>
         <div class="thermo_button">
-        </div><button id="temperature-up">+</button><h1 id="temperature"></h1><button id="temperature-down">-</button></div>
+          <button id="temperature-up">+</button><h1 id="temperature"></h1><button id="temperature-down">-</button>
+        </div>
         <p>
           <button id="temperature-reset">reset</button>
-          power saving mode is <span id="power-saving-status">on</span>
-          <button id="powersaving-on">PSM on</button>
-          <button id="powersaving-off">PSM off</button>
         </p>
-      </section>
+        <p>  
+          <button id="powersaving-off">PSM off</button>
+          power saving mode is <span id="power-saving">on</span>
+          <button id="powersaving-on">PSM on</button>
+        </p>
+      </div>
+      <div class="section-2">
+        <img src="./thermo.jpeg">
+      </div>
+    </section>  
     <script src="src/Thermostat.js"></script>
     <script src="src/interface.js"></script>
   </body>
